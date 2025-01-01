@@ -11,8 +11,8 @@ s3 = boto3.client('s3')
 rekognition = boto3.client('rekognition')
 
 # Environment variables for table and collection
-DYNAMODB_TABLE = os.getenv('DYNAMODB_TABLE', 'cricketers_collection')
-REKOGNITION_COLLECTION = os.getenv('REKOGNITION_COLLECTION', 'cricketers')
+DYNAMODB_TABLE = os.getenv('DYNAMODB_TABLE', 'face-prints-table')
+REKOGNITION_COLLECTION = os.getenv('REKOGNITION_COLLECTION', 'rekognition-collection-id')
 
 def index_faces(bucket, key):
     try:

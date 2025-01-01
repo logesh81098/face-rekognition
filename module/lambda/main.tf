@@ -28,7 +28,22 @@ data "archive_file" "name" {
   type = "zip"
 }
 
+############################################################################################################################
+#                                        Deploying Lambda Function 
+############################################################################################################################
 
+########Lambda function for creating faceprint############
+resource "aws_lambda_function" "faceprint-lambda" {
+  function_name = "faceprint-lambda"
+  runtime = "python3.8"
+  timeout = "20"
+  filename = "module/lambda/faceprint.zip"
+  role = var.faceprint-lambda-role
+  handler = "faceprint.lambda_handler"
+  tags = {
+    Name = "faceprint-lambda"
+  }
+}
 
 
 ############################################################################################################################
