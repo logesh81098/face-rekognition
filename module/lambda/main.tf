@@ -2,7 +2,7 @@
 #                                        Deploying Lambda Function 
 ############################################################################################################################
 
-########Lambda function for collection id############
+########Lambda function for creating collection id############
 
 resource "aws_lambda_function" "rekognition-collection-id" {
   handler = "collection-id.lambda_handler"
@@ -18,7 +18,6 @@ resource "aws_lambda_function" "rekognition-collection-id" {
 }
 
 
-
 ############################################################################################################################
 #                                        Archive Files
 ############################################################################################################################
@@ -27,4 +26,17 @@ data "archive_file" "name" {
   source_dir = "module/lambda"
   output_path = "module/lambda/rekognition-collection-id.zip"
   type = "zip"
+}
+
+
+
+
+############################################################################################################################
+#                                        Archive Files
+############################################################################################################################
+
+data "archive_file" "faceprint" {
+  type = "zip"
+  source_dir = "module/lambda"
+  output_path = "module/lambda/faceprint.zip"
 }
