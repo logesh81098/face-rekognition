@@ -55,3 +55,16 @@ data "archive_file" "faceprint" {
   source_dir = "module/lambda"
   output_path = "module/lambda/faceprint.zip"
 }
+
+
+
+#############################################################################################################
+#                                 Adding Invoke Permission
+#############################################################################################################
+resource "aws_lambda_permission" "invoke-permission-lambda" {
+  statement_id = "s3invokelambda"
+  action = "lambda:InvokeFunction"
+  principal = "s3.amazonaws.com"
+  function_name = aws_lambda_function.faceprint-lambda.function_name
+  source_arn = var.bucket-arn
+}

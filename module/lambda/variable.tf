@@ -5,3 +5,7 @@ variable "collection-id-role-arn" {
 variable "faceprint-lambda-role" {
   default = {}
 }
+
+variable "bucket-arn" {
+  default = {}
+}
