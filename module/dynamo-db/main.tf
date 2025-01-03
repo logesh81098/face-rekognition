@@ -6,11 +6,11 @@
 
 resource "aws_dynamodb_table" "face-prints-table" {
   name = "face-prints-table"
-  hash_key = "RecognitionID"
+  hash_key = "RekognitionId"
   billing_mode = "PAY_PER_REQUEST"
   attribute {
     type = "S"
-    name = "RecognitionID"
+    name = "RekognitionId"
   }
   tags = {
     Name = "face-prints-table"
