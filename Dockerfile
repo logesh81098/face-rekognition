@@ -1,11 +1,19 @@
-FROM python:3.12.3-alpine3.18
+FROM python:3.9-slim
 
 WORKDIR /app
 
-RUN pip install flask boto3 pillow
+COPY template/ /app/templates/
+
+COPY requirements.txt /app/requirements.txt
+
+COPY app.py /app/app.py
+
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app
 
 EXPOSE 81
 
-CMD [ "app.py" "python" ]
+ENV FLASK_ENV=development
+
+CMD [ "python", "app.py" ]
