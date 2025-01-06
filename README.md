@@ -9,6 +9,7 @@ Detail about this project:
     Building the face recognition program and putting it in the EKS cluster, if the application finds a comparable face with the face prints, it will push notification as user found, and if it mismatches, it will push notification as user not found
 
 🏠 Architecture
+![image](https://github.com/user-attachments/assets/0da8a9dd-c838-4489-83f8-f646c5d38f0c)
 
 
 📃 list of services
